@@ -1,9 +1,9 @@
 ---
-title: "Final Project"
-subtitle: "Nobel Prize Winners"
+title: "Final Project for DSBA: 5122"
+subtitle: "Shiny Application for Nobel Prize Winners Data"
 author: "Dipin Kasana, Kelly O'Shields & Josh Peterson"
-institute: "UNC Charlotte - DSBA: 5122"
-date: "December 9, 2019"
+institute: "UNC Charlotte"
+date: "December 17, 2019"
 output:
   xaringan::moon_reader:
     css: [default, metropolis, rutgers-fonts]
@@ -102,7 +102,7 @@ output:
 
 ### Production
 - Functions
-- Reactive functions
+- Reactive expressions
 - Breaking up the code
 
 ---
@@ -130,6 +130,7 @@ output$motivation_wordcloud <- renderPlot({
 --
 
 1. Improve UI and visualizations for improved usability
+
   - Download buttons for tables
   - Improve reactivitity of plots and tables to filtering
   - Improve performance of application (caching of plots, analyze performance via shinyloadtest, etc.)
@@ -137,12 +138,14 @@ output$motivation_wordcloud <- renderPlot({
 --
 
 1. Provide more analysis around potential biases and gaps
+
   - Better comparisons among groups of interest
   - Utilize statistical tests to potentially find evidence of bias 
   
 --
 
 1. Provide more support for insights
+
   - More descriptive language to help with interpretation
   - Provide more information concerning sample sizes, number of observations, etc.
 
