@@ -107,18 +107,6 @@ output:
 
 ---
 
-# Design Process
-
-Validate
-```{r eval=FALSE}
-output$motivation_wordcloud <- renderPlot({
-        validate(
-                need(motivation_freq()$n != "", "No Data Available")
-        )
-```
-
----
-
 # Demo
 
 [Link to App](https://japeterson.shinyapps.io/updated-app/)
