@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>Final Project</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Dipin Kasana, Kelly O’Shields &amp; Josh Peterson" />
+    <meta name="date" content="2019-12-09" />
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/rutgers-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Final Project
+## Nobel Prize Winners
+### Dipin Kasana, Kelly O’Shields &amp; Josh Peterson
+### UNC Charlotte - DSBA: 5122
+### December 9, 2019
+
+---
+
+
+# Agenda
+
+1. Overview of Data
+
+1. Purpose of Application
+
+1. Design Process
+
+1. Demo
+
+1. Future Work
+
+1. Questions
+
+
+---
+
+# Overview to Data
+
+## Data Utilized for Project
+- All past Nobel Prize Winners - [Kaggle](https://www.kaggle.com/nobelfoundation/nobel-laureates#archive.csv)
+- All publications by Nobel Prize winners in three categories - [Harvard Dataverse](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/6NJ5RN)
+  - Chemistry
+  - Medicine
+  - Physics
+  
+&lt;strong&gt;Nobel Winners&lt;/strong&gt;
+
+.center[
+&lt;img src="images/winners.PNG" width = 800&gt;
+]
+
+&lt;strong&gt;Nobel Winners - All Publications&lt;/strong&gt;
+
+.center[
+&lt;img src="images/all-pub.PNG" width = 800&gt;
+]
+
+---
+
+# Purpose of Application
+
+&lt;strong&gt;Purpose:&lt;/strong&gt; This application is to provide insights to the Swedish and Norwegian institutions responsible for awarding the Nobel Prize.
+
+--
+
+## Why
+
+1. It will assist in the decision making process for future Nobel Prize recipients. 
+
+1. It will help these institutions identify biases, disparities and gaps.
+
+1. It will act as a source of historical information for these institutions.
+
+---
+
+# Design Process
+
+## Layout of Dashboard
+
+.pull-left[
+
+1. Introduction
+
+1. Overview
+
+1. Motivation and Paper Title Analysis
+
+1. Publication and Age Analysis
+]
+
+.pull-right[
+.right[
+&lt;br&gt;
+&lt;img src="images/sidebar.PNG" width = 300&gt;
+]
+]
+---
+
+# Design Process
+
+### User
+- Shiny Dashboard
+- Validate
+- Waiter
+
+### Production
+- Functions
+- Reactive functions
+- Breaking up the code
+
+---
+
+# Design Process
+
+Validate
+
+```r
+output$motivation_wordcloud &lt;- renderPlot({
+        validate(
+                need(motivation_freq()$n != "", "No Data Available")
+        )
+```
+
+---
+
+# Demo
+
+[Link to App](https://japeterson.shinyapps.io/updated-app/)
+
+---
+
+# Future Work
+
+--
+
+1. Improve UI and visualizations for improved usability
+  - Download buttons for tables
+  - Improve reactivitity of plots and tables to filtering
+  - Improve performance of application (caching of plots, analyze performance via shinyloadtest, etc.)
+
+--
+
+1. Provide more analysis around potential biases and gaps
+  - Better comparisons among groups of interest
+  - Utilize statistical tests to potentially find evidence of bias 
+  
+--
+
+1. Provide more support for insights
+  - More descriptive language to help with interpretation
+  - Provide more information concerning sample sizes, number of observations, etc.
+
+---
+
+class: center, middle
+&lt;font size=36 color=#00703c&gt;&lt;b&gt;Questions?&lt;/b&gt;&lt;/font&gt;
+
+---
+class: center, middle
+
+&lt;font size=36 color=#00703c&gt;&lt;b&gt;Thanks!&lt;/b&gt;&lt;/font&gt;
+&lt;br&gt;
+Slides created via the R package [**xaringan**](https://github.com/yihui/xaringan).
+
+---
+
+# Links
+
+Shiny App - [GitHub repo](https://github.com/joshapeterson/dsba5122-class-project) &amp; [Deployed App](https://japeterson.shinyapps.io/updated-app/)
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
